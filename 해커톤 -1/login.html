@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=3.0, user-scalable=yes">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <style>
+        .sol {
+            border: 1px #000 solid;
+        }
+        
+        @font-face {
+            font-family: 'Cafe24Ssurround';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        body {
+            font-family: 'Cafe24Ssurround';
+        }
+    </style>
+</head>
+
+<body>
+    <div style="text-align: center;">
+        <div class="row rowLine">
+            <div class="col">
+                <h2>로그인</h2>
+                <br>
+            </div>
+        </div>
+
+        <form>
+            <div class="row rowLine">
+                <div class="col-4"></div>
+                <div class="col-1 text-center">EMAIL</div>
+                <div class="col-3">
+                    <input type="email" name="email" class="form-control">
+                </div>
+                <div class="col-2"></div>
+            </div><br>
+
+            <div class="row rowLine">
+                <div class="col-4"></div>
+                <div class="col-1 text-center">PASSSWORD</div>
+                <div class="col-3">
+                    <input type="password" name="password" class="form-control">
+                </div>
+                <div class="col-2"></div>
+            </div><br>
+
+            <div class="row rowLine">
+                <div class="col text-center">
+                    <button type="submit" class="btn sol">
+                        로그인
+                    </button>
+
+                    <button type="button" class="btn sol">
+                        회원가입
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

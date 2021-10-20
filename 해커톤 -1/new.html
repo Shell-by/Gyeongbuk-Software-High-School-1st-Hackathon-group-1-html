@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>생활 루틴 추가</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=3.0, user-scalable=yes">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <style>
+        .box {
+            width: 600px;
+            height: auto;
+            border: 1px #000 solid;
+            margin: auto;
+        }
+
+        .textCenter {
+            text-align: center;
+        }
+
+        .right {
+            float: right;
+            margin-right: 10px;
+        }
+
+        .left {
+            float: left;
+            margin-left: 10px;
+        }
+
+        .sol {
+            border: 1px #000 solid;
+        }
+
+        @font-face {
+            font-family: 'Cafe24Ssurround';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        body {
+            font-family: 'Cafe24Ssurround';
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            let add = document.getElementById("add")
+            let i = 1
+            let j = 1
+            add.onclick = function () {
+                let div = document.createElement("div")
+                div.innerHTML = " "
+                let li = document.createElement("li")
+                li.setAttribute('id', i)
+                li.setAttribute('name', i)
+                let startInput = document.createElement("input")
+                startInput.setAttribute('type', 'time')
+                li.appendChild(div)
+                li.appendChild(startInput)
+
+                let endInput = document.createElement("input")
+                endInput.setAttribute('type', 'time')
+                li.appendChild(endInput)
+
+                let select = document.createElement("select")
+                let option1 = document.createElement("option")
+                let option2 = document.createElement("option")
+                let option3 = document.createElement("option")
+                let option4 = document.createElement("option")
+                let option5 = document.createElement("option")
+                select.setAttribute('id', 'c' + j)
+                select.setAttribute('name', 'c' + j)
+                option1.setAttribute('value', 'b1')
+                option1.innerHTML = "조깅"
+                option2.setAttribute('value', 'b2')
+                option2.innerHTML = "스쿼트"
+                option3.setAttribute('value', 'b3')
+                option3.innerHTML = "플랭크"
+                option4.setAttribute('value', 'b4')
+                option4.innerHTML = "팔굽혀펴기"
+                option5.setAttribute('value', 'b5')
+                option5.innerHTML = "기타"
+                select.appendChild(option1)
+                select.appendChild(option2)
+                select.appendChild(option3)
+                select.appendChild(option4)
+                select.appendChild(option5)
+                li.appendChild(select)
+                j++
+
+                let tex = document.createElement("input")
+                tex.setAttribute('type', 'text')
+                tex.style.display = "none"
+                li.appendChild(tex)
+
+                select.onchange = function () {
+                    let sel = select.options[select.selectedIndex].value
+                    if (sel == 'b5') {
+                        tex.style.display = "inline"
+                    } else {
+                        tex.style.display = "none"
+                    }
+                }
+
+                let plusMinus = document.getElementById("plusMinus")
+                plusMinus.appendChild(li)
+                i++
+            }
+            let del = document.getElementById("del")
+            del.onclick = function () {
+                let delInput = document.getElementById(i - 1)
+                delInput.remove()
+                i--;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h3 class="textCenter">아침 생활 루틴 추가</h3> <br>
+    <form method="post">
+        <div class="textCenter">
+            <div class="box">
+                <div style="padding-bottom: 10px;">
+                    <div class="row rowLine">
+                        <div class="col-4">제목&nbsp;</div>
+                        <input class="col-5" type="text" id="title" name="title">
+                        <br><br><br>
+                    </div>
+                    <br>
+
+                    <div style="padding-bottom: 10px;">
+                        <div class="row rowLine">
+                            <div class="col-4">썸네일&nbsp;</div>
+                            <input class="col-5" type="file" id="file name=" file">
+                            <br><br>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div style="padding-bottom: 10px;">
+                        <div class="row rowLine">
+                            <div class="col-4">시작 날짜&nbsp;</div>
+                            <input class="col-5" type="date" id="start" name="start">
+                            <br><br>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div style="padding-bottom: 10px;">
+                        <div class="row rowLine">
+                            <div class="col-4">종료 날짜&nbsp;</div>
+                            <input class="col-5" type="date" id="end" name="end">
+                            <br><br>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div style="padding-bottom: 10px;">
+                        <div class="row rowLine">
+                            <div class="col-4">기상 시간&nbsp;</div>
+                            <input class="col-5" type="time" id="wakeUp" name="wakeUp">
+                            <br><br>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div style="padding-bottom: 10px;">
+                        <div class="row rowLine">
+                            <div class="col-4">공개 여부&nbsp;</div>
+                            <input class="col-2" type="radio" value="O" name="isPrivate"> 공개
+                            <input class="col-2" type="radio" value="X" name="isPrivate"> 비공개
+                            <br><br>
+                        </div>
+                    </div>
+                    <ol id="plusMinus">
+
+                    </ol>
+                    <div class="row rowLine">
+                        <div class="col text-center">
+                            <button type="submit" class="btn sol" id="add" name="add">
+                                추가
+                            </button>
+
+                            <button type="button" class="btn sol" id="del" name="del">
+                                삭제
+                            </button>
+                        </div>
+                    </div>
+                    <br><br>
+
+                    <button type="submit" class="btn sol" id="sub" name="sub">
+                        제출
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </form>
+
+</body>
+
+</html>
