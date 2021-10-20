@@ -1,1 +1,1 @@
-# Gyeongbuk-Software-High-School-1st-Hackathon-group-1-html
+경북 소프트웨어 고등학교 제 1회 해커톤 1조 html
